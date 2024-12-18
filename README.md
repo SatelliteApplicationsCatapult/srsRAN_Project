@@ -122,6 +122,8 @@ make -j $(nproc)
 make test -j $(nproc)
 ```
 
+**NOTE**: Use `export CC=$(which gcc-11)` and `export CXX=$(which g++-11)` and proceed with `cmake ../ -B build` if the compilation fails.
+
 Pay extra attention to the cmake console output. Make sure you read the following line to ensure ZMQ has been correctly detected by srsRAN:
 
 ```bash
