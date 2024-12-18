@@ -1,0 +1,48 @@
+# Example config for a locally deployed CU listening on the localhost interface for a DU connection
+
+
+cu_cp:
+  amf:
+    addr: 10.53.1.2
+    port: 38412
+    bind_addr: 10.53.1.1
+    supported_tracking_areas:
+      - tac: 7
+        plmn_list:
+          - plmn: "00101"
+            tai_slice_support_list:
+              - sst: 1
+  f1ap:
+    bind_addr: 127.0.10.1
+  inactivity_timer: 7200
+
+
+cu_up:
+  nru:
+    bind_addr: 127.0.10.1
+
+#amf:
+#  addr: 10.53.1.2
+#  port: 38412
+#  bind_addr: 10.53.1.1
+
+#cu_cp:
+#  f1ap:
+#    bind_addr: 127.0.10.1
+#  inactivity_timer: 7200
+
+log:
+  filename: /tmp/cu.log
+  all_level: warning
+
+pcap:
+  ngap_enable: false
+  ngap_filename: /tmp/cu_ngap.pcap
+  n3_filename: /tmp/cu_n3.pcap         # Optional TEXT (/tmp/gnb_n3.pcap). Path for N3 PCAPs.
+  n3_enable: false                      # Optional BOOLEAN (false). Enable/disable N3 packet capture. Supported: [false, true].
+  e1ap_filename: /tmp/cu_e1ap.pcap     # Optional TEXT (/tmp/gnb_e1ap.pcap). Path for E1AP PCAPs.
+  e1ap_enable: false                   # Optional BOOLEAN (false). Enable/disable E1AP packet capture. Supported: [false, true].
+  f1ap_filename: /tmp/cu_f1ap.pcap     # Optional TEXT (/tmp/gnb_f1ap.pcap). Path for F1AP PCAPs.
+  f1ap_enable: false                   # Optional BOOLEAN (false). Enable/disable F1AP packet capture. Supported: [false, true].
+  f1u_filename: /tmp/cu_f1u.pcap      # Optional TEXT (/tmp/gnb_f1u.pcap). Path for F1-U (NRU) PCAPs.
+  f1u_enable: false                     # Optional BOOLEAN (false). Enable/disable F1-U (NRU) packet capture. Supported: [false, true].
