@@ -29,6 +29,8 @@ services:
         OPEN5GS_VERSION: "v2.7.0"
     env_file:
       - ${OPEN_5GS_ENV_FILE:-open5gs/open5gs.env}
+    volumes:
+      - ./open5gs/subscriber_db.csv:/open5gs/subscriber_db.csv
     privileged: true
     ports:
       - "9999:9999/tcp"
